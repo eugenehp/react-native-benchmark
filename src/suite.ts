@@ -17,9 +17,9 @@ export class Suite {
     const suite = this;
     
     switch(type){
-      case EventType.ALL_COMPLETE:
+      case EventType.COMPLETE:
         // check when bench is complete
-        this.benches.map( bench => bench.addListener(EventType.COMPLETE, () => {
+        this.benches.map( bench => bench.addListener(type, () => {
           if(++counter === this.benches.length)
             listener(new Event(type, suite)) // notify when all benches and suite are complete
         }));

@@ -98,7 +98,7 @@ export class Benchmark extends EventEmitter {
 
   complete = () => {
     this.running = false;
-    this.emit(EventType.COMPLETE, new Event(EventType.COMPLETE, this))
+    this.emit(EventType.COMPLETE, new Event(EventType.COMPLETE, this as Benchmark))
   }
 
   ops = ():number => Math.floor(this.count / this.times.elapsed);

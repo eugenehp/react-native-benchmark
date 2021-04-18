@@ -8,4 +8,8 @@
 ## 0.0.2
 
 - added `Suite.toJSON` method
-- add `EventType.ALL_COMPLETE` to notify on completion of the `Suite`.
+- add `EventType.ALL_COMPLETE` to notify on completion of the `Suite`
+
+## 0.0.4
+
+- deleted `EventType.ALL_COMPLETE`
