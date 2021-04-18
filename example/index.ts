@@ -14,8 +14,9 @@ suite.add('RegExp#test', () => {
 .on(EventType.CYCLE, (event) => {
   // console.log(event.type, event.target.times);
 })
-.on(EventType.COMPLETE, (event) => {
-  const suite:Suite = event.target as Suite
+.on(EventType.ALL_COMPLETE, () => {
   console.log(suite.toString())
+  console.log('===================')
+  console.log(suite.toJSON())
 })
 .run({async: true});

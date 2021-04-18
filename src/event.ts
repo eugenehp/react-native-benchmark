@@ -6,6 +6,7 @@ export enum EventType {
   START = 'start',
   CYCLE = 'cycle',
   COMPLETE = 'complete',
+  ALL_COMPLETE = 'all_complete',
   ERROR = 'error',
 }
 

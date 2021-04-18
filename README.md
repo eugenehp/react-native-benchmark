@@ -53,6 +53,50 @@ suite.add('RegExp#test', () => {
 .run({async: true});
 ```
 
+## Example output
+
+Output for `suite.toString()` method.
+
+```plain
+RegExp#test - 2211577 ops/sec ± 2.10%
+String#indexOf - 2335987 ops/sec ± 1.96%
+String#match - 2046868 ops/sec ± 0.88%
+```
+
+Output for `suite.toJSON()` method.
+
+```JSON
+{
+  'RegExp#test': {
+    moe: 46334.779732633404,
+    mean: 2211577.4,
+    rme: 2.0951009778194245,
+    deviation: 37322.66469908063,
+    variance: 1392981300.2399998,
+    sem: 16691.203073715205,
+    sample: [ 2138299, 2234914, 2228720, 2217517, 2238437 ]
+  },
+  'String#indexOf': {
+    moe: 45836.23559201627,
+    mean: 2335986.6,
+    rme: 1.962178875170614,
+    deviation: 36921.08739785436,
+    variance: 1363166694.6399999,
+    sem: 16511.612244962635,
+    sample: [ 2265366, 2353147, 2372154, 2338449, 2350817 ]
+  },
+  'String#match': {
+    moe: 18031.048282470998,
+    mean: 2046867.8,
+    rme: 0.880909274280977,
+    deviation: 14524.009245384002,
+    variance: 210946844.56,
+    sem: 6495.33439570281,
+    sample: [ 2048837, 2035629, 2025664, 2064410, 2059799 ]
+  }
+}
+```
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

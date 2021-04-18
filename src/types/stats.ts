@@ -107,4 +107,26 @@ export class Stats {
 
     return `Stats: ${JSON.stringify(obj, null, 2)}`
   }
+
+  public toJSON():Stats {
+    const {
+      moe,
+      mean,
+      rme,
+      deviation,
+      variance,
+      sem,
+      sample
+    } = this;
+
+    return {
+      moe,
+      mean,
+      rme,
+      deviation,
+      variance,
+      sem,
+      sample
+    } as Stats
+  }
 }

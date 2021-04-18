@@ -2,6 +2,7 @@ import { EventType, Event } from './event';
 import { Benchmark } from "./benchmark";
 import { ListenerFunction } from './types';
 import { Options, defaultOptions } from './types/options';
+import { Stats } from './types/stats';
 
 export class Suite {
   private benches:Array<Benchmark> = [];
@@ -16,10 +17,11 @@ export class Suite {
     const suite = this;
     
     switch(type){
-      case EventType.COMPLETE:
-        this.benches.map( bench => bench.addListener(type, () => {
+      case EventType.ALL_COMPLETE:
+        // check when bench is complete
+        this.benches.map( bench => bench.addListener(EventType.COMPLETE, () => {
           if(++counter === this.benches.length)
-            listener(new Event(type, suite))
+            listener(new Event(type, suite)) // notify when all benches and suite are complete
         }));
         break;
       default:
@@ -65,6 +67,14 @@ export class Suite {
     }else{
       return this.benches.map( bench => bench.run(opts))
     }
+  }
+
+  toJSON = ():{[key:string]:Stats} => {
+    let result:{[key:string]:Stats} = {};
+
+    this.benches.map( b => result[b.name] = b.stats.toJSON())
+
+    return result;
   }
 
   toString = ():string => this.benches.map(b => b.toString()).join('\n')
