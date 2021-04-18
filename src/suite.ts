@@ -69,7 +69,7 @@ export class Suite {
     }
   }
 
-  toJSON = ():{[key:string]:Stats} => {
+  toJSON():{[key:string]:Stats} {
     let result:{[key:string]:Stats} = {};
 
     this.benches.map( b => result[b.name] = b.stats.toJSON())
@@ -77,5 +77,7 @@ export class Suite {
     return result;
   }
 
-  toString = ():string => this.benches.map(b => b.toString()).join('\n')
+  toString():string { 
+    return this.benches.map(b => b.toString()).join('\n')
+  }
 }

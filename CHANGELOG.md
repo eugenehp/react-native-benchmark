@@ -13,3 +13,7 @@
 ## 0.0.4
 
 - deleted `EventType.ALL_COMPLETE`
+
+## 0.0.5
+
+- refactored `Suite.toJSON` and `Suite.toString`
